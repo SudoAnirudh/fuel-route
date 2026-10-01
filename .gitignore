@@ -29,7 +29,6 @@ staticfiles/
 .coverage
 htmlcov/
 
-# Scratch & Temporary Assessment Prompt Files
+# Scratch & Assessment Documentation Folder
 scratch/
-CODEX_CLAUDE_PROMPT.md
-README_ASSESSMENT.md
+assessment_docs/
