@@ -80,14 +80,6 @@ curl -X POST http://127.0.0.1:8000/api/v1/routes/plan/ \
   },
   "route_distance_miles": 1005.1,
   "route_duration_seconds": 64095.5,
-  "route_geometry": {
-    "type": "LineString",
-    "coordinates": [
-      [-87.6298, 41.8781],
-      [-95.9345, 41.2565],
-      [-104.9903, 39.7392]
-    ]
-  },
   "vehicle_assumptions": {
     "max_range_miles": 500.0,
     "fuel_economy_mpg": 10.0
@@ -131,6 +123,14 @@ curl -X POST http://127.0.0.1:8000/api/v1/routes/plan/ \
     "candidate_stations_evaluated": 145,
     "optimizer_time_ms": 12.4,
     "total_request_time_ms": 145.2
+  },
+  "route_geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [-87.6298, 41.8781],
+      [-95.9345, 41.2565],
+      [-104.9903, 39.7392]
+    ]
   }
 }
 ```

@@ -112,6 +112,13 @@ class PlannerService:
             for s in plan.fuel_stops
         ]
 
+        geometry = route_res.geometry
+        if isinstance(geometry, dict) and "type" not in geometry:
+            geometry = {
+                "type": "LineString",
+                "coordinates": geometry.get("coordinates", [])
+            }
+
         return {
             "start": {
                 "query": start_location,
@@ -127,7 +134,6 @@ class PlannerService:
             },
             "route_distance_miles": route_res.distance_miles,
             "route_duration_seconds": route_res.duration_seconds,
-            "route_geometry": route_res.geometry,
             "vehicle_assumptions": {
                 "max_range_miles": self.optimizer.max_range_miles,
                 "fuel_economy_mpg": self.optimizer.mpg
@@ -142,5 +148,6 @@ class PlannerService:
                 "candidate_stations_evaluated": plan.candidate_count,
                 "optimizer_time_ms": opt_duration_ms,
                 "total_request_time_ms": total_duration_ms
-            }
+            },
+            "route_geometry": geometry
         }
